@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
-    'bootstrap4',
     'pyuploadcare.dj',
     'jet.dashboard',
     'jet',
@@ -94,7 +93,7 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fasaldb',
+        'NAME': 'fasaldb2019',
         'USER': 'sean',
     'PASSWORD':'Aggreyomondi90',
     }
@@ -151,7 +150,7 @@ SITE_ID = 1
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 MEDIA_URL = '/products/'
