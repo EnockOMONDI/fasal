@@ -1,45 +1,60 @@
 {% extends 'shop/base.html' %}
 {% load static %}
+{% block title %}
+    {% if category %}{{ category.name }} {% else %} products {% endif %}
+{% endblock %}
 
-{% block content%}
+{% block content %}
 <br>
 <br>
 <br>
 <br>
+   <div class="container-fluid">
+      <div class="row" style="margin-top: 6%">
 
+        <div class="col-sm-8 blog-main">
 
-<section class="our_major_cause section_gap_custom">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                    <div id="animated-example" class="animated bounce"></div>
-                <div class="card" style="box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1);">
-                       
-                    <div class="card-body" >
-                        <figure>
-                            <img class="card-img-top img-fluid" src="images/img03.png" alt="request student image from database">
-                        </figure>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width: 76%;">
-                                <span>Funded 46%</span>
-                            </div>
+          <div class="blog-post">
+              <div class="row">
+                    <div class="row">
+                            {% for product in products %}
+                                <div class="col-md-4">
+                                  <div class="thumbnail">
+                                      <a href="{{ product.get_absolute_url }}">
+                                          <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 130px; width: auto">
+                                      </a>
+                                      <div class="caption">
+                                          <h3 class="text-center">
+                                              <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                                          </h3>
+                                          <p class="text-center">{{ product.brief_story }}</p>
+                                      </div>
+                                  </div>
+                                </div>
+                            {% endfor %}
                         </div>
-                        <div class="card_inner_body">
-                            <div class="card-body-top">
-                                <span>Raised: KSH7,689</span> / KSH30,000
-                            </div>
-                            <h4 class="card-title">REHEMA MOHAMED</h4>
-                            <p class="card-text">Rehema is  student at Domino high school in Marsabit.She has challenges with her school fees and she is crowdfunding to raise her school fee.
-                            </p>
-                            <a href="#" class="btn btn-primary btn-hover-teal py-6 px-9">donate here</a>
+                    </div><!-- /.blog-post -->
+
+                </div><!-- /.blog-main -->
+
+                <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+                        <div class="sidebar-module">
+                          <h4>Categories</h4>
+                          <ol class="list-unstyled">
+                            <li {% if not category %} class="active"{% endif %}><a href="{% url 'shop:product_list' %}">All</a></li>
+                          {% for c in categories %}
+              
+                            <li {% if category.slug == c.slug %} class="active"{% endif %}>
+                                <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                            </li>
+                          {% endfor %}
+                          </ol>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-</section>
-{% endblock%}
-<!--================ Ens Our Major Cause section =================-->
+                      </div><!-- /.blog-sidebar -->
+              
+                    </div><!-- /.row -->
+              
+                  </div><!-- /.container -->
+              {% endblock %}
+            
+              
