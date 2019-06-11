@@ -45,9 +45,9 @@ def team(request):
   return render(request, 'shop/product/team.html')
 
 def donate(request):
-  return render(request, 'shop/product/team.html')
+  return render(request, 'shop/product/donate.html')
 
 def contact(request):
-  return render(request, 'shop/product/team.html')
+  return render(request, 'shop/product/contact.html')
 
   

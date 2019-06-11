@@ -32,6 +32,7 @@ class Student(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(blank=True, null=True, upload_to='student_images/')
+    available = models.BooleanField(default=True)
      
     class Meta:
         ordering = ('name', )
