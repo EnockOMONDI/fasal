@@ -7419,6 +7419,8 @@ h1, h2, h3, h4, h5,
 .ftco-navbar-light .navbar-brand {
 color: rgb(255, 81, 0); }
 
+/* end of ftco-navbar-light */
+
 .navbar-brand {
   text-transform: uppercase;
   letter-spacing: .1em;
