@@ -38,6 +38,23 @@
 
               </div><!-- /.blog-main -->
 
-                
+              <div class="row">
+                {% if students%}
+                {% else %}
+                  <h1><strong> BUMMER!! </strong>There are currently no students updated on the portal.Kindly visit another time.</h1>
+                  <h3> <a href="{% url 'shop:contact' %}">Chat</a>Contuct us for more details</h3>
+                  
+                 
+                  <br>
+                 
+                {% endif %}
+            
+              </div>
+           
+          
+          
+              </div>
+            </div>
+          </div>        
 
               {% endblock %}
