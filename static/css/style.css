@@ -7404,7 +7404,7 @@ h1, h2, h3, h4, h5,
 .ftco-navbar-light.scrolled .nav-link {
       padding-top: 0.9rem !important;
       padding-bottom: 0.9rem !important;
-      color: rgb(0, 0, 0) !important; }
+      color: rgba(51, 51, 51, 0.8) !important; }
       .ftco-navbar-light.scrolled .nav-link.active {
         color: rgb(207, 86, 10) !important; }
 .ftco-navbar-light.scrolled.awake {
