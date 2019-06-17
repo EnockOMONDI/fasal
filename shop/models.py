@@ -35,7 +35,7 @@ class Student(models.Model):
     image = models.ImageField(blank=True, null=True, upload_to='student_images/')
     available = models.BooleanField(default=True)
     image_thumbnail = ImageSpecField(source='image',
-                                 processors=[ResizeToFill(250, 250)],
+                                 processors=[ResizeToFill(350, 350)],
                                  format='JPEG',
                                  options={'quality': 90})
      

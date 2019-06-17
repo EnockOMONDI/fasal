@@ -7539,7 +7539,7 @@ color: rgb(255, 81, 0); }
     outline: none; }
   .btn.btn-hover-white:hover {
     background: transparent;
-    border-color: #fff !important;
+    border-color: rgb(255, 255, 255) !important;
     color: #fff !important; }
   .btn.btn-success {
     border: 2px solid#A44C14;

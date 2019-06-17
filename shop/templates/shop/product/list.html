@@ -50,12 +50,12 @@
                       <div class="post-entry mb-5">
                         <a href="{{ student.get_absolute_url }}" class="mb-3 img-wrap">
                           <img src="{% if student.image %} {{ student.image_thumbnail.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}"  alt="Image placeholder" class="img-fluid">
-                          <span class="date">{{ student.name }}</span>
+                          <span class="date">{{ student.name }} </span>
                         </a>
-                        <h3><a href="blog-single.html">Feeling Fruitful</a></h3>
-                       <p>{{ student.brief_story }}</p> 
-                        <p><a href="blog-single.html">Read More</a></p>
-                       
+                        <div class="col-md-4 text-center"> 
+                       <p>{{ student.brief_story }}</p> </div> 
+                    
+                        <p><a href="" class="btn btn-primary  py-3 px-5">Read full story</a></p> 
                       </div>
                    
                     
