@@ -1,7 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from pyuploadcare.dj.models import ImageField
-
+from imagekit.models import ImageSpecField 
+from imagekit.processors import ResizeToFill 
 
 
 class Category(models.Model):
@@ -33,6 +34,10 @@ class Student(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(blank=True, null=True, upload_to='student_images/')
     available = models.BooleanField(default=True)
+    image_thumbnail = ImageSpecField(source='image',
+                                 processors=[ResizeToFill(250, 250)],
+                                 format='JPEG',
+                                 options={'quality': 90})
      
     class Meta:
         ordering = ('name', )
