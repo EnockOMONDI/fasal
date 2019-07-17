@@ -1,7 +1,9 @@
 {% extends 'shop/base.html' %}
-
 {% load static %}
+{% block title %}
+   
 
+{% endblock %}
 
 {% block content %}
 <br>
@@ -10,63 +12,47 @@
 <br>
 <div class="row ">
         <div class="col-md-12 mb-5 text-center ">
-          <h2 style="color:#e29537" >Our Founders</h2>
+          <h2 style=" color:#e29537;font-weight: 600; " >Our Founders</h2>
         </div>
+        {% for team in teams  %}
         <div class="col-md-6 col-lg-3">
           <div class="block-38 text-center">
             <div class="block-38-img">
               <div class="block-38-header">
-                <img src="static/images/avatar.png" alt="Image placeholder">
-                <h3 style=" color: rgb(100, 99, 99);" class="block-38-heading">person1</h3>
-                <p class="block-38-subheading">CEO</p>
+                <img src="{% if  media.image %} {{  media.image_thumbnail.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="Image placeholder">
+                <h3 style=" color: rgb(100, 99, 99);" class="block-38-heading">{{ team.name}}</h3>
+                <p class="block-38-subheading">{{ team.position }}</p>
               </div>
               <div class="block-38-body">
-                <p style=" color: rgb(100, 99, 99);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
+                <p style=" color: rgb(100, 99, 99);">{{ team.brief_description }}</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="block-38 text-center">
-            <div class="block-38-img">
-              <div class="block-38-header">
-                <img src="static/images/avatar.png" alt="Image placeholder">
-                <h3 style=" color: rgb(100, 99, 99);" class="block-38-heading">person2</h3>
-                <p class="block-38-subheading">Board Member</p>
-              </div>
-              <div class="block-38-body">
-                <p style=" color: rgb(100, 99, 99);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
-              </div>
-            </div>
-          </div>
+        {% endfor %} 
+      </div>
+   
+      <div class="container-fluid">
+        <div class="col-sm-8 blog-main">
+        <div class="row">
+          {% if  teams %}
+          {% else %}
+          <div class="col-md-8 text-center"> 
+            <h1 style="font-family: 'Work Sans', sans-serif; color: rgb(37, 37, 37);"><strong> Sorry !! </strong>Company Team is not up to date on the Portal. Kindly visit some other time.</h1>
+            <h3 style="font-family: 'Work Sans', sans-serif; color: rgb(37, 37, 37);"> <a href="{% url 'shop:contact' %}">contact</a> us for more details</h3>
+           </div>
+           
+            <br>
+           
+          {% endif %}
+      
         </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="block-38 text-center">
-            <div class="block-38-img">
-              <div class="block-38-header">
-                <img src="static/images/avatar.png" alt="Image placeholder">
-                <h3 style=" color: rgb(100, 99, 99);" class="block-38-heading">person3</h3>
-                <p class="block-38-subheading">Board Member</p>
-              </div>
-              <div class="block-38-body">
-                <p style=" color: rgb(100, 99, 99);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="block-38 text-center">
-            <div class="block-38-img">
-              <div class="block-38-header">
-                <img src="static/images/avatar.png" alt="Image placeholder">
-                <h3  style=" color: rgb(100, 99, 99);" class="block-38-heading">person4</h3>
-                <p class="block-38-subheading">Chairperson</p>
-              </div>
-              <div class="block-38-body">
-                <p style=" color: rgb(100, 99, 99);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
-              </div>
-            </div>
-          </div>
+     </div>
+    
+  </div>
         </div>
       </div>
-      {% endblock %}  
+    </div>        
+
+        {% endblock %}
+  

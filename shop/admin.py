@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Student
+from .models import Category, Student, Media, Team
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -17,5 +17,21 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
-admin.site.register(Student, ProductAdmin)
+admin.site.register(Student, ProductAdmin,)
+
+class MediaAdmin(admin.ModelAdmin):
+    list_display = ['name', 'slug']
+    prepopulated_fields = {'slug': ('name',)}
+
+admin.site.register(Media, MediaAdmin,)
+
+
+
+class TeamAdmin(admin.ModelAdmin):
+    list_display = ['name', 'slug', 'brief_description', 'position']
+    prepopulated_fields = {'slug': ('name',)}
+
+
+admin.site.register(Team, TeamAdmin,)
+
 

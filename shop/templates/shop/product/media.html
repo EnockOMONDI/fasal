@@ -1,22 +1,86 @@
 {% extends 'shop/base.html' %}
-
 {% load static %}
+{% block title %}
+   
+
+{% endblock %}
+
 {% block content %}
 <br>
 <br>
 <br>
 <br>
-<div class="site-section">
-        <div class="container">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <a href="static/images/arid-semi-arid.png" class="image-popup img-hover">
-                <span class="icon icon-search"></span>
-                <img src="static/images/arid-semi-arid.png" alt="Image placeholder" class="img-fluid">
-              </a>
-            </div>  
-          </div>
+            
+
+              <div class="site-section">
+                 
+                <div class="container">
+                    
+                  <div class="row">
+                        {% for media in medias %}
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                      <div class="post-entry mb-5">
+                        <a href="" class="mb-3 img-wrap">
+                          <img src="{% if  media.image %} {{  media.image_thumbnail.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}"  alt="Image placeholder" class="img-fluid">
+                          <span class="date">{{  media.name }} </span>
+                        </a>
+                        <div class="col-md-4 text-center"> 
+                       
+                    
+                      
+                      </div>
+                   
+                    
+                    </div>
+                    {% endfor %} 
+                  </div>
+              
+                
+                </div>
+               
+              </div> 
+             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="container-fluid">
+              <div class="col-sm-8 blog-main">
+              <div class="row">
+                {% if  medias %}
+                {% else %}
+                <div class="col-md-8 text-center"> 
+                  <h1 style="font-family: 'Work Sans', sans-serif; color: rgb(37, 37, 37);"><strong> Sorry !! </strong>There are currently no Media/ Gallery on the Portal. Kindly visit some other time.</h1>
+                  <h3 style="font-family: 'Work Sans', sans-serif; color: rgb(37, 37, 37);"> <a href="{% url 'shop:contact' %}">contact</a> us for more details</h3>
+                 </div>
+                 
+                  <br>
+                 
+                {% endif %}
+            
+              </div>
+           </div>
+          
         </div>
-      </div>
-    
-      {% endblock %}
+              </div>
+            </div>
+          </div>        
+
+              {% endblock %}
+       

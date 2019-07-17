@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Category, Student
+from .models import Category, Student, Media, Team
 
 
 
@@ -17,6 +17,26 @@ def product_list(request, category_slug=None):
         'students': students
     }
     return render(request, 'shop/product/list.html', context)
+
+
+def media_list(request,):
+    medias = Media.objects.all
+
+
+    context = {
+        'medias': medias
+    }
+    return render(request, 'shop/product/media.html', context)
+
+
+def team_list(request,):
+    teams = Team.objects.all
+
+
+    context = {
+        'teams': teams
+    }
+    return render(request, 'shop/product/team.html', context)
 
 
 def product_detail(request, id, slug):
@@ -38,8 +58,7 @@ def about(request):
 def projects(request):
   return render(request, 'shop/product/projects.html')
 
-def media(request):
-  return render(request, 'shop/product/media.html')
+
 
 def team(request):
   return render(request, 'shop/product/team.html')

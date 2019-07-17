@@ -48,3 +48,43 @@ class Student(models.Model):
 
     def get_absolute_url(self):
         return reverse('shop:product_detail', args=[self.id, self.slug])
+    
+class Media(models.Model):
+    name = models.CharField(max_length=100, db_index=True)
+    slug = models.SlugField(max_length=100, db_index=True)
+    image = models.ImageField(blank=True, null=True, upload_to='media/')
+    image_thumbnail = ImageSpecField(source='image',
+                                 processors=[ResizeToFill(350, 350)],
+                                 format='JPEG',
+                                 options={'quality': 90})
+      
+    class Meta:
+        ordering = ('name', )
+        index_together = (('id', 'slug'),)  
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('shop:media_detail', args=[self.id, self.slug])
+
+class Team(models.Model):
+    name = models.CharField(max_length=100, db_index=True)
+    position = models.CharField(max_length=100, db_index=True)
+    brief_description = models.CharField(max_length=200, db_index=True)
+    slug = models.SlugField(max_length=100, db_index=True)
+    image = models.ImageField(blank=True, null=True, upload_to='media/')
+    image_thumbnail = ImageSpecField(source='image',
+                                 processors=[ResizeToFill(350, 350)],
+                                 format='JPEG',
+                                 options={'quality': 90})
+      
+    class Meta:
+        ordering = ('name', )
+        index_together = (('id', 'slug'),)  
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('shop:team_detail', args=[self.id, self.slug])
