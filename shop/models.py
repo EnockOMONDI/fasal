@@ -69,9 +69,9 @@ class Media(models.Model):
         return reverse('shop:media_detail', args=[self.id, self.slug])
 
 class Team(models.Model):
-    name = models.CharField(max_length=100, db_index=True)
-    position = models.CharField(max_length=100, db_index=True)
-    brief_description = models.CharField(max_length=200, db_index=True)
+    name = models.CharField(max_length=200, db_index=True)
+    position = models.CharField(max_length=200, db_index=True)
+    brief_description = models.CharField(max_length=900, db_index=True)
     slug = models.SlugField(max_length=100, db_index=True)
     image = models.ImageField(blank=True, null=True, upload_to='media/')
     image_thumbnail = ImageSpecField(source='image',
