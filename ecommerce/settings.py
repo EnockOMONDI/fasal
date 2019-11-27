@@ -140,8 +140,9 @@ USE_TZ = True
 UPLOADCARE = {
   # Don’t forget to set real keys when it gets real :)
 
-  'pub_key': '4b92b91744f8fad64594',
-  'secret': 'ac8a8ddb499c86130cf2',
+  'pub_key': 'f66061bbaf54e00caf7a',
+  'secret': 'dfb056d4e682da118185',
+  'widget_version': '3.x',
 }
 
 # Static files (CSS, JavaScript, Images)

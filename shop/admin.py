@@ -10,14 +10,14 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 
 
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'document', 'perfomance_card', 'available', 'created_at', 'updated_at']
-    list_filter = ['available', 'created_at', 'updated_at']
-    list_editable = ['document', 'available', 'perfomance_card']
+class StudentAdmin(admin.ModelAdmin):
+    list_display = ['name', 'slug', 'perfomance_card', 'document','brief_story' , 'created_at', 'updated_at']
+    list_filter = ['created_at', 'updated_at']
+    list_editable = ['document', 'perfomance_card']
     prepopulated_fields = {'slug': ('name',)}
 
 
-admin.site.register(Student, ProductAdmin,)
+admin.site.register(Student, StudentAdmin,)
 
 class MediaAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']

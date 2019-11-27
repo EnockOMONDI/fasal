@@ -22,7 +22,7 @@
                     <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
                       <div class="post-entry mb-5">
                         <a href="{{ student.get_absolute_url }}" class="mb-3 img-wrap">
-                          <img src="{% if student.image %} {{ student.image_thumbnail.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}"  alt="Image placeholder" class="img-fluid">
+                            <img src="{% if student.image %} {{ student.image.cdn_url }} {% else %} {% static 'img/default.png' %} {% endif %}" alt="student member Image ">
                           <span class="date">{{ student.name }} </span>
                         </a>
                         <div class="col-md-4 text-center"> 

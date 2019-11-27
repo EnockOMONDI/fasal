@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from pyuploadcare.dj.models import ImageField
+from pyuploadcare.dj.models import ImageField, FileField
 from imagekit.models import ImageSpecField 
 from imagekit.processors import ResizeToFill 
 
@@ -24,20 +24,16 @@ class Category(models.Model):
 
 
 class Student(models.Model):
-    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, related_name='students', on_delete=models.CASCADE)
     name = models.CharField(max_length=255, db_index=True)
     slug = models.SlugField(max_length=255, db_index=True)
     brief_story = models.TextField(blank=True)
-    perfomance_card = models.FileField(upload_to='documents/student_perfomance_cards')
-    document = models.FileField(upload_to='documents/fee_statements')
+    perfomance_card = FileField()
+    document = FileField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(blank=True, null=True, upload_to='student_images/')
-    available = models.BooleanField(default=True)
-    image_thumbnail = ImageSpecField(source='image',
-                                 processors=[ResizeToFill(350, 350)],
-                                 format='JPEG',
-                                 options={'quality': 90})
+    image = ImageField(blank=True, null=True, manual_crop="4:4",)
+   
      
     class Meta:
         ordering = ('name', )
@@ -52,11 +48,7 @@ class Student(models.Model):
 class Media(models.Model):
     name = models.CharField(max_length=255, db_index=True)
     slug = models.SlugField(max_length=255, db_index=True)
-    image = models.ImageField(blank=True, null=True, upload_to='media/')
-    image_thumbnail = ImageSpecField(source='image',
-                                 processors=[ResizeToFill(350, 350)],
-                                 format='JPEG',
-                                 options={'quality': 90})
+    image = ImageField(blank=True, null=True, manual_crop="4:4",)
       
     class Meta:
         ordering = ('name', )
@@ -73,11 +65,7 @@ class Team(models.Model):
     position = models.CharField(max_length=255, db_index=True)
     brief_description = models.TextField(blank=True)
     slug = models.SlugField(max_length=255, db_index=True)
-    image = models.ImageField(blank=True, null=True, upload_to='media/')
-    image_thumbnail = ImageSpecField(source='image',
-                                 processors=[ResizeToFill(350, 350)],
-                                 format='JPEG',
-                                 options={'quality': 90})
+    image = ImageField(blank=True, null=True, manual_crop="4:4",)
       
     class Meta:
         ordering = ('name', )
