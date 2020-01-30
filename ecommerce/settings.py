@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fasaldb2019',
+        'NAME': 'fasaldb2020',
         'USER': 'sean',
     'PASSWORD':'Aggreyomondi90',
     }

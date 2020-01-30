@@ -6,7 +6,7 @@ from .models import Category, Student, Media, Team
 def product_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
-    students = Student.objects.filter(available=True)
+    students = Student.objects.all()
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         students = Student.objects.filter(category=category)
@@ -40,7 +40,7 @@ def team_list(request,):
 
 
 def product_detail(request, id, slug):
-    product = get_object_or_404(Student, id=id, slug=slug, available=True)
+    product = get_object_or_404(Student, id=id, slug=slug)
     cart_product_form = CartAddProductForm()
     context = {
         'product': product,
